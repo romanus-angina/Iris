@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>AI Article Highlighter</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .api-key-section {
+      margin-bottom: 15px;
+    }
+    input {
+      width: 100%;
+      margin: 5px 0;
+      padding: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 5px 0;
+    }
+    button:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+    button:hover:not(:disabled) {
+      background-color: #45a049;
+    }
+    .status {
+      margin-top: 10px;
+      padding: 8px;
+      color: #666;
+      min-height: 20px;
+      text-align: center;
+    }
+    .error {
+      color: #f44336;
+    }
+  </style>
+</head>
+<body>
+  <div class="api-key-section">
+    <label for="api-key">OpenAI API Key:</label>
+    <input type="password" id="api-key" placeholder="Enter your OpenAI API key (starts with sk-)" spellcheck="false">
+    <button id="save-key">Save API Key</button>
+  </div>
+  <button id="highlight" disabled>Highlight Important Content</button>
+  <div id="status" class="status"></div>
+  <script src="./popup.js"></script>
+</body>
+</html>
