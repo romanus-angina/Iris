@@ -9,51 +9,136 @@
       padding: 10px;
       font-family: Arial, sans-serif;
     }
-    .api-key-section {
-      margin-bottom: 15px;
-    }
+
     input {
-      width: 100%;
-      margin: 5px 0;
-      padding: 5px;
-      box-sizing: border-box;
+        width: 100%;
+        margin: 5px 0;
+        padding: 5px 15px;
+        box-sizing: content-box;
+        border-radius: 15px;
+        background-color: rgb(255, 255, 255);
+        color: #195a51;
+        border: 1px solid #0c443c;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
-    button {
-      width: 100%;
-      padding: 8px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      margin: 5px 0;
+
+    input:hover {
+        box-shadow: 0 0 10px rgba(24, 93, 83, 0.3);
     }
-    button:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
+
+    input svg {
+        width: 16px;
+        height: 16px;
     }
-    button:hover:not(:disabled) {
-      background-color: #45a049;
+
+    .save-button {
+        background: linear-gradient(
+            black,
+            rgb(22, 22, 22),
+            rgb(28, 28, 28),
+            rgb(45, 45, 45)
+        );
+        color: white;
+        font-family: Arial;
+        font-weight: initial;
+        font-size: small;
+        padding: 8px 12px;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
+
+    .save-button:hover {
+        background: linear-gradient(
+            rgb(15, 15, 15),
+            rgb(32, 32, 32),
+            rgb(38, 38, 38),
+            rgb(55, 55, 55)
+        );
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .save-button svg {
+        width: 16px;
+        height: 16px;
+    }
+
     .status {
-      margin-top: 10px;
-      padding: 8px;
-      color: #666;
-      min-height: 20px;
-      text-align: center;
+        margin-top: 10px;
+        padding: 8px;
+        color: #666;
+        min-height: 20px;
+        text-align: center;
     }
+    
     .error {
-      color: #f44336;
+        color: #f44336;
+    }
+
+    .highlight-button {
+        background: linear-gradient(
+            black,
+            rgb(22, 22, 22),
+            rgb(28, 28, 28),
+            rgb(45, 45, 45)
+        );
+        color: white;
+        font-family: Arial;
+        font-weight: initial;
+        font-size: small;
+        padding:  8px 12px;
+        border: 2px solid white;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .highlight-button:hover {
+        background: linear-gradient(
+            rgb(15, 15, 15),
+            rgb(32, 32, 32),
+            rgb(38, 38, 38),
+            rgb(55, 55, 55)
+        );
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .highlight-button svg {
+        width: 16px;
+        height: 16px;
     }
   </style>
 </head>
 <body>
   <div class="api-key-section">
-    <label for="api-key">OpenAI API Key:</label>
-    <input type="password" id="api-key" placeholder="Enter your OpenAI API key (starts with sk-)" spellcheck="false">
-    <button id="save-key">Save API Key</button>
+    <input type="password" id="api-key" placeholder="Enter your OpenAI API key" spellcheck="false">
+    <button class="save-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+        <polyline points="17 21 17 13 7 13 7 21"/>
+        <polyline points="7 3 7 8 15 8"/>
+    </svg>
+    <span>Save</span>
+</button>
   </div>
-  <button id="highlight" disabled>Highlight Important Content</button>
+  <button class="highlight-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l-6 6v3h9l3-3"/>
+        <path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/>
+    </svg>
+    <span>Highlight</span>
+  </button>
   <div id="status" class="status"></div>
   <script src="./popup.js"></script>
 </body>
