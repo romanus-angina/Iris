@@ -2,16 +2,34 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>AI Article Highlighter</title>
+  <title>Iris: AI Highlighter</title>
   <style>
-    body {
-      width: 300px;
-      padding: 10px;
-      font-family: Arial, sans-serif;
+
+  body {
+    width: 300px;
+    padding: 0; 
+    margin: 0;  
+    font-family: Arial, sans-serif;
+    background: transparent !important;
+    border-radius: 16px;
+  }
+
+  .popup-container {
+    background-color: none; 
+    border-radius: 16px; 
+    padding: 15px;
+    margin: 8px;
+    box-shadow: none; 
+  }
+
+    .api-key-section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     input {
-        width: 100%;
+        width: 60%;
         margin: 5px 0;
         padding: 5px 15px;
         box-sizing: content-box;
@@ -121,24 +139,26 @@
   </style>
 </head>
 <body>
+  <div class="popup-container">
   <div class="api-key-section">
     <input type="password" id="api-key" placeholder="Enter your OpenAI API key" spellcheck="false">
-    <button class="save-button">
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <button id="save-key" class="save-button">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
         <polyline points="17 21 17 13 7 13 7 21"/>
         <polyline points="7 3 7 8 15 8"/>
-    </svg>
-    <span>Save</span>
-</button>
-  </div>
-  <button class="highlight-button">
+      </svg>
+      Save
+    </button>
+  <button id="highlight" class="highlight-button" disabled>
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 11l-6 6v3h9l3-3"/>
-        <path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/>
+      <path d="M9 11l-6 6v3h9l3-3"/>
+      <path d="M22 12l-4.6 4.6a2 2 0 0 1-2.8 0l-5.2-5.2a2 2 0 0 1 0-2.8L14 4"/>
     </svg>
-    <span>Highlight</span>
+    Highlight
   </button>
+</div>
+</div>
   <div id="status" class="status"></div>
   <script src="./popup.js"></script>
 </body>
